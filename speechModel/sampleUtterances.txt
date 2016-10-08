@@ -1,0 +1,31 @@
+GetSunrise when does the sun rise
+GetSunrise when does the sun rise today
+GetSunrise what time does the sun rise
+GetSunrise what time does the sun rise today
+GetSunrise when is sunrise
+GetSunrise when is sunrise today
+
+GetSunset when does the sun set
+GetSunset when does the sun set today
+GetSunset what time does the sun set
+GetSunset what time does the sun set today
+GetSunset when is sunset
+GetSunset when is sunset today
+
+GetMoonPhase what phase is the moon in
+GetMoonPhase what phase is the moon in today
+GetMoonPhase what does the moon look like
+GetMoonPhase what does the moon look like today
+GetMoonPhase what will the moon look like tonight
+GetMoonPhase is it a full moon
+GetMoonPhase is it a new moon
+GetMoonPhase is it a harvest moon
+
+GetMeteorShower when is the next meteor shower
+GetMeteorShower is there a meteor shower tonight
+GetMeteorShower what time is the meteor shower
+
+GetGoodGazingNight is it a good night for star gazing
+GetGoodGazingNight can i see the stars tonight
+GetGoodGazingNight can i see the stars
+GetGoodGazingNight when is the next good night for star gazing

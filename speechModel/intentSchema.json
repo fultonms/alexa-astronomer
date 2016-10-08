@@ -1,0 +1,25 @@
+{
+  "intents":[
+    {
+      "intent": "GetSunrise"
+    },
+    {
+    "intent": "GetSunset"
+    },
+    {
+      "intent": "GetMoonPhase"
+    },
+    {
+      "intent": "GetMeteorShower"
+    },
+    {
+      "intent":"GetGoodGazingNight"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    }
+  ]
+}
