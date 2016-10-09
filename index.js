@@ -13,30 +13,30 @@ app.launch(function(request, response){
 });
 
 app.intent('GetSunrise',
-  function(request, response){
+  function(alexaRequest, alexaResponse){
     var url = sunbaseURL + "lat=" + lat + "&lng=" + long;
     request({
       url: url,
       json: true
-    }, response.say(function(error, response, body) {
+    }, (function(error, response, body) {
         if(!error && response.statusCode === 200){
-          return moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS');
+          alexaResponse.say(moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
         }
-    }));
+    });
   }
 );
 
 app.intent('GetSunset',
-  function(request, response){
+  function(alexaRequest, alexaResponse){
     var url = sunbaseURL + "lat=" + lat + "&lng=" + long;
     request({
       url: url,
       json: true
-    }, response.say(function(error, response, body) {
+    }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          return moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS');
+          alexaResponse.say(moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
         }
-    }));
+    });
   }
 );
 
