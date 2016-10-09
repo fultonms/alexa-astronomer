@@ -1,16 +1,10 @@
-GetSunrise when does the sun rise
-GetSunrise when does the sun rise today
-GetSunrise what time does the sun rise
-GetSunrise what time does the sun rise today
-GetSunrise when is sunrise
-GetSunrise when is sunrise today
+GetSunrise when does the sun rise {today| Date}
+GetSunrise what time does the sun rise {today| Date}
+GetSunrise when is sunrise {today |Date}
 
-GetSunset when does the sun set
-GetSunset when does the sun set today
-GetSunset what time does the sun set
-GetSunset what time does the sun set today
-GetSunset when is sunset
-GetSunset when is sunset today
+GetSunset when does the sun set {today | Date}
+GetSunset what time does the sun set {today | Date}
+GetSunset when is sunset {today| Date}
 
 GetMoonPhase what phase is the moon in
 GetMoonPhase what phase is the moon in today

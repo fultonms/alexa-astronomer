@@ -1,10 +1,22 @@
 {
   "intents":[
     {
-      "intent": "GetSunrise"
+      "intent": "GetSunrise",
+      "slots": [
+        {
+            "name": "Date",
+            "type": "AMAZON.DATE"
+        }
+     ]
     },
     {
-    "intent": "GetSunset"
+    "intent": "GetSunset",
+    "slots": [
+        {
+            "name": "dDte",
+            "type": "AMAZON.DATE"
+        }
+    ]
     },
     {
       "intent": "GetMoonPhase"
