@@ -21,8 +21,10 @@ app.intent('GetSunrise',
     }, (function(error, response, body) {
         if(!error && response.statusCode === 200){
           alexaResponse.say(moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
+          alexaResponse.send();
         }
     }));
+    return false;
   }
 );
 
@@ -35,8 +37,10 @@ app.intent('GetSunset',
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
           alexaResponse.say(moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
+          alexaResponse.send();
         }
     }));
+    return false;
   }
 );
 
