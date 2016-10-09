@@ -18,6 +18,5 @@
   "homepage": "https://github.com/fultonms/alexa-astronomer",
   "dependencies": {
     "alexa-app": "^2.3.4",
-    "lambda-packager": "^0.2.1"
   }
 }

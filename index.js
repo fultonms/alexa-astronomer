@@ -8,7 +8,7 @@ app.launch(function(request, response){
 app.intent('getsunrise',
   function(request, response){
     sunriseMessage = "Nooooooooon";
-    response.say(sunriseMessage");
+    response.say(sunriseMessage);
   }
 );
 
