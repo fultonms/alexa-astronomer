@@ -18,15 +18,14 @@ app.intent('GetSunrise',
     request({
       url: url,
       json: true
-    }, (function(error, response, body) {
+    }, function(error, response, body) {
         if(!error && response.statusCode === 200){
           alexaResponse.say(moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
           alexaResponse.send();
         }
-    }));
+    });
     return false;
-  }
-);
+});
 
 app.intent('GetSunset',
   function(alexaRequest, alexaResponse){
@@ -39,10 +38,9 @@ app.intent('GetSunset',
           alexaResponse.say(moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
           alexaResponse.send();
         }
-    }));
+    });
     return false;
-  }
-);
+});
 
 app.error = function(exception, request, response) {
     response.say("Lol get rekt noob.");
