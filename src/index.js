@@ -1,12 +1,15 @@
 /**
  * App ID for the skill
  */
+var cuseLocation = (43.0440, -76.1518);
+
 var APP_ID = "amzn1.ask.skill.09b8c667-aa79-4135-8cde-d589c624aaee";
 
 /**
  * The AlexaSkill prototype and helper functions
  */
 var AlexaSkill = require('./AlexaSkill');
+var APIQuery = require('./APIQuery');
 
 var Astronomer = function () {
     AlexaSkill.call(this, APP_ID);
@@ -38,7 +41,7 @@ Astronomer.prototype.eventHandlers.onSessionEnded = function (sessionEndedReques
 Astronomer.prototype.intentHandlers = {
     // register custom intent handlers
     "GetSunrise": function (intent, session, response) {
-        sunriseSpeech = "Sunrise is at noon today";
+        sunriseSpeech = APIQuery.QuerySunset(cuseLocation[0], cuseLocation[1], Null);
         response.tell(sunriseSpeech);
     },
     "GetSunset": function (intent, session, response){
@@ -49,7 +52,7 @@ Astronomer.prototype.intentHandlers = {
       moonSpeech = "The moon is new.";
       response.tell(moonSpeech);
     },
-    "GetMeteorShower": function (intent, session, response){
+    "GetNextEclipse": function (intent, session, response){
       meteorSpeech = "Ayy lmao";
       response.tell(meteorSpeech);
     },

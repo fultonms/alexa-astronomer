@@ -21,9 +21,9 @@ GetMoonPhase is it a full moon
 GetMoonPhase is it a new moon
 GetMoonPhase is it a harvest moon
 
-GetMeteorShower when is the next meteor shower
-GetMeteorShower is there a meteor shower tonight
-GetMeteorShower what time is the meteor shower
+GetNextEclipse when is the next eclipse
+GetNextEclipse when is the eclipse
+GetNextEclipse when can i see the next eclipse
 
 GetGoodGazingNight is it a good night for star gazing
 GetGoodGazingNight can i see the stars tonight

@@ -10,7 +10,7 @@
       "intent": "GetMoonPhase"
     },
     {
-      "intent": "GetMeteorShower"
+      "intent": "GetNextEclipse"
     },
     {
       "intent":"GetGoodGazingNight"
