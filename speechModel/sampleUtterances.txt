@@ -1,10 +1,18 @@
-GetSunrise when does the sun rise {Date}
-GetSunrise what time does the sun rise {Date}
-GetSunrise when is sunrise {Date}
+GetSunrise when does the sun rise on {Date}
+GetSunrise what time does the sun rise on {Date}
+GetSunrise when is sunrise on {Date}
+GetSunrise when will the sun rise on {Date}
+GetSunrise when will sunset be on {Date}
+GetSunrise what time will the sun set on {Date}
+GetSunrise what time will sunset be on {Date}
 
-GetSunset when does the sun set {Date}
-GetSunset what time does the sun set {Date}
-GetSunset when is sunset {Date}
+GetSunset when does the sun set on {Date}
+GetSunset what time does the sun set on {Date}
+GetSunset when is sunset on {Date}
+GetSunset when will the sun set on {Date}
+GetSunset when will sunset be on {Date}
+GetSunset what time will the sun set on {Date}
+GetSunset what time will sunset be on {Date}
 
 GetMoonPhase what phase is the moon in
 GetMoonPhase what phase is the moon in today
