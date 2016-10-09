@@ -21,7 +21,7 @@ app.intent('GetSunrise',
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          sunriseMessage = moment(body.results.sunrise, "HH:mm:ss A").add(4, "hours").format('LTS');
+          sunriseMessage = moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS');
         }
     });
     response.say(sunriseMessage);
@@ -37,7 +37,7 @@ app.intent('GetSunset',
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          sunsetMessage = moment(body.results.sunset, "HH:mm:ss A").add(4, "hours").format('LTS');
+          sunsetMessage = moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS');
         }
     });
     response.say(sunsetMessage);
