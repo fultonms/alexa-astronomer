@@ -47,13 +47,13 @@ app.intent('GetSunset',
 
 app.intent('GetMoonPhase',
   function(alexaRequest, alexaResponse){
-    var url = moonbaseURL + moment().format('I') + "&nump=1";
+    var url = moonbaseURL + moment().format("MM/DD/YYYY") + "&nump=1";
     request({
       url: url,
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          alexaResponse.say("The moon is currently in the phase " + body.results.phase);
+          alexaResponse.say("The moon is currently in the phase " + body.phasedata[0].phase);
           alexaResponse.send();
         }
     });
