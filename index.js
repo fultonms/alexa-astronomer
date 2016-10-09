@@ -3,7 +3,7 @@ var moment = require("moment");
 
 var sunbaseURL = "http://api.sunrise-sunset.org/json?";
 var moonbaseURL = "http://api.usno.navy.mil/moon/phase?date=";
-var weatherbaseURL = "";
+var weatherbaseURL = "api.openweathermap.org/data/2.5/weather?";
 
 var lat = 43.048122;
 var long = -76.147424;
@@ -54,6 +54,25 @@ app.intent('GetMoonPhase',
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
           alexaResponse.say("The moon is currently in the phase " + body.phasedata[0].phase);
+          alexaResponse.send();
+        }
+    });
+    return false;
+});
+
+app.intent('GetMoonPhase',
+  function(alexaRequest, alexaResponse){
+    var url = weatherbaseURL + "lat=" + lat + "&lon=" + long;
+    request({
+      url: url,
+      json: true
+    }, function(error, response, body) {
+        if(!error && response.statusCode === 200){
+          if(body.clouds.all  < 30){}
+            alexaResponse.say("Weather seems okay for stargazing right now.");
+          } else{
+            alexaResponse.say("Weather might not be so good for stargazing right now.");
+          }
           alexaResponse.send();
         }
     });
