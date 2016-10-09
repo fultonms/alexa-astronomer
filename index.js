@@ -2,6 +2,9 @@ var request = require("request");
 var moment = require("moment");
 
 var sunbaseURL = "http://api.sunrise-sunset.org/json?";
+var moonbaseURL = "http://api.usno.navy.mil/moon/phase?date=";
+var weatherbaseURL = "";
+
 var lat = 43.048122;
 var long = -76.147424;
 
@@ -9,7 +12,7 @@ var alexa = require('alexa-app');
 var app = new alexa.app('astronomer');
 
 app.launch(function(request, response){
-  response.say("I can tell you when the sun will rise or set.");
+  response.say("Welcome to Astronomer! I can tell you when sunrise and sunset are, the current phase of the moon, and conditions for stargazing.");
 });
 
 app.intent('GetSunrise',
@@ -20,7 +23,7 @@ app.intent('GetSunrise',
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          alexaResponse.say(moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
+          alexaResponse.say("Sunrise for your location will be at " + moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
           alexaResponse.send();
         }
     });
@@ -35,7 +38,22 @@ app.intent('GetSunset',
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          alexaResponse.say(moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
+          alexaResponse.say("Sunset for your location will be at " + moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
+          alexaResponse.send();
+        }
+    });
+    return false;
+});
+
+app.intent('GetMoonPhase',
+  function(alexaRequest, alexaResponse){
+    var url = moonbaseURL + moment().format('I');
+    request({
+      url: url,
+      json: true
+    }, function(error, response, body) {
+        if(!error && response.statusCode === 200){
+          alexaResponse.say("The moon is currently in the phase " + body.results.phase);
           alexaResponse.send();
         }
     });
