@@ -60,7 +60,7 @@ app.intent('GetMoonPhase',
     return false;
 });
 
-app.intent('GetMoonPhase',
+app.intent('GetGoodGazingNight',
   function(alexaRequest, alexaResponse){
     var url = weatherbaseURL + "lat=" + lat + "&lon=" + long;
     request({
