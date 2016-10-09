@@ -1,4 +1,5 @@
-require("request");
+var request = require("request");
+var moment = require("moment");
 
 var sunbaseURL = "http://api.sunrise-sunset.org/json?";
 var lat = 43.048122;
@@ -20,8 +21,7 @@ app.intent('GetSunrise',
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          obj = JSON.parse(body);
-          sunriseMessage = obj.sunrise;
+          sunriseMessage = moment(body.results.sunrise, "HH:mm:ss A").add(4, "hours").format('LTS');
         }
     });
     response.say(sunriseMessage);
@@ -37,8 +37,7 @@ app.intent('GetSunset',
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          obj = JSON.parse(body);
-          sunriseMessage = obj.sunset;
+          sunsetMessage = moment(body.results.sunset, "HH:mm:ss A").add(4, "hours").format('LTS');
         }
     });
     response.say(sunsetMessage);
