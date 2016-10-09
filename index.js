@@ -13,7 +13,7 @@ var alexa = require('alexa-app');
 var app = new alexa.app('astronomer');
 
 app.launch(function(request, response){
-  response.say("Welcome to Astronomer! I can tell you when sunrise and sunset are, the current phase of the moon, and conditions for stargazing.");
+  response.say("Welcome to Astronomer! I can tell you when sunrise and sunset are, the current phase of the moon, or conditions for stargazing.");
 });
 
 app.intent('GetSunrise',
@@ -69,16 +69,27 @@ app.intent('GetGoodGazingNight',
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          if(body.clouds.all  < 30){}
+          if(body.clouds.all  < 30){
             alexaResponse.say("Weather seems okay for stargazing right now.");
           } else{
             alexaResponse.say("Weather might not be so good for stargazing right now.");
           }
           alexaResponse.send();
         }
+
     });
     return false;
 });
+
+app.intent('AMAZON.HelpIntent',
+  function(alexaRequest, alexaResponse){
+    alexaResponse.say("I can tell you when sunrise and sunset are, the current phase of the moon, or conditions for stargazing.");
+});
+
+app.intent('AMAZON.StopIntent',
+  function(alexaRequest, alexaResponse){
+      alexaResponse.say("Goodybe, and happpy stargazing.");
+  });
 
 app.error = function(exception, request, response) {
     response.say("Lol get rekt noob.");
