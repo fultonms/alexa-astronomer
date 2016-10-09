@@ -47,7 +47,7 @@ app.intent('GetSunset',
 
 app.intent('GetMoonPhase',
   function(alexaRequest, alexaResponse){
-    var url = moonbaseURL + moment().format('I');
+    var url = moonbaseURL + moment().format('I') + "&nump=1";
     request({
       url: url,
       json: true
