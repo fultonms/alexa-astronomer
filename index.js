@@ -20,15 +20,16 @@ app.intent('GetSunrise',
   function(alexaRequest, alexaResponse){
     var url = sunbaseURL + "lat=" + lat + "&lng=" + lon;
     var date = alexaRequest.slot('Date');
-    if(date){
-        date = date + "&date=" + date;
+    if(date != ""){
+        url = url + "&date=" + date;
     }
+
     request({
       url: url,
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          alexaResponse.say("Sunrise for the selected date in Syracuse will be at " + moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
+          alexaResponse.say("Sunrise for that day in Syracuse will be at " + moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
           alexaResponse.send();
         }
     });
@@ -38,13 +39,16 @@ app.intent('GetSunrise',
 app.intent('GetSunset',
   function(alexaRequest, alexaResponse){
     var url = sunbaseURL + "lat=" + lat + "&lng=" + lon;
-
+    var date = alexaRequest.slot('Date');
+    if(date != ""){
+        url = url + "&date=" + date;
+    }
     request({
       url: url,
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          alexaResponse.say("Sunset for your location will be at " + moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
+          alexaResponse.say("Sunset for that day in Syracuse will be at " + moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
           alexaResponse.send();
         }
     });
