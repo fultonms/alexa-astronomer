@@ -19,27 +19,25 @@ app.intent('GetSunrise',
     var sunriseMessage = request({
       url: url,
       json: true
-    }, function(error, response, body) {
-        if(!error && response.statusCode === 200){
-          yield moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS');
+    }, function(error, resp, body) {
+        if(!error && resp.statusCode === 200){
+          response.say(moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
         }
     });
-    response.say(sunriseMessage);
   }
 );
 
 app.intent('GetSunset',
   function(request, response){
     var url = sunbaseURL + "lat=" + lat + "&lng=" + long;
-    var sunseteMessage = request({
+    var sunseteMessage =request({
       url: url,
       json: true
-    }, function(error, response, body) {
-        if(!error && response.statusCode === 200){
-          sunsetMessage = moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS');
+    }, function(error, resp, body) {
+        if(!error && resp.statusCode === 200){
+          response.say(moment(body.results.sunset, "HH:mm:ss A").subtract(4, "hours").format('LTS'));
         }
     });
-    response.say(sunsetMessage);
   }
 );
 
