@@ -4,9 +4,10 @@ var moment = require("moment");
 var sunbaseURL = "http://api.sunrise-sunset.org/json?";
 var moonbaseURL = "http://api.usno.navy.mil/moon/phase?date=";
 var weatherbaseURL = "api.openweathermap.org/data/2.5/weather?";
+var weatherAPI = "5d4c2904312725cfbaa3afa9583f0211";
 
 var lat = 43.048122;
-var long = -76.147424;
+var lon = -76.147424;
 
 var alexa = require('alexa-app');
 var app = new alexa.app('astronomer');
@@ -17,7 +18,7 @@ app.launch(function(request, response){
 
 app.intent('GetSunrise',
   function(alexaRequest, alexaResponse){
-    var url = sunbaseURL + "lat=" + lat + "&lng=" + long;
+    var url = sunbaseURL + "lat=" + lat + "&lng=" + lon;
     request({
       url: url,
       json: true
@@ -32,7 +33,7 @@ app.intent('GetSunrise',
 
 app.intent('GetSunset',
   function(alexaRequest, alexaResponse){
-    var url = sunbaseURL + "lat=" + lat + "&lng=" + long;
+    var url = sunbaseURL + "lat=" + lat + "&lng=" + lon;
     request({
       url: url,
       json: true
@@ -62,7 +63,7 @@ app.intent('GetMoonPhase',
 
 app.intent('GetGoodGazingNight',
   function(alexaRequest, alexaResponse){
-    var url = weatherbaseURL + "lat=" + lat + "&lon=" + long;
+    var url = weatherbaseURL + "lat=" + lat + "&lon=" + lon + "&APPID=" + weatherAPI;
     request({
       url: url,
       json: true
