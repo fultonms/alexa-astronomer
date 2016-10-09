@@ -40,4 +40,8 @@ app.intent('GetSunset',
   }
 );
 
+app.error = function(exception, request, response) {
+    response.say("Lol get rekt noob.");
+};
+
 exports.handler = app.lambda();
