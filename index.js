@@ -15,13 +15,13 @@ app.launch(function(request, response){
 app.intent('GetSunrise',
   function(request, response){
     var url = sunbaseURL + "lat=" + lat + "&lng=" + long;
-    var sunriseMessage = "";
-    request({
+
+    var sunriseMessage = request({
       url: url,
       json: true
     }, function(error, response, body) {
         if(!error && response.statusCode === 200){
-          sunriseMessage = moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS');
+          yield moment(body.results.sunrise, "HH:mm:ss A").subtract(4, "hours").format('LTS');
         }
     });
     response.say(sunriseMessage);
@@ -31,8 +31,7 @@ app.intent('GetSunrise',
 app.intent('GetSunset',
   function(request, response){
     var url = sunbaseURL + "lat=" + lat + "&lng=" + long;
-    var sunseteMessage = "";
-    request({
+    var sunseteMessage = request({
       url: url,
       json: true
     }, function(error, response, body) {
